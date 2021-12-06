@@ -1,0 +1,45 @@
+{
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "css-loader": "^6.5.1",
+    "eslint": "^8.4.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "mini-css-extract-plugin": "^2.4.5",
+    "node-sass": "^6.0.1",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0",
+    "webpack-notifier": "^1.14.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|jsx)": [
+      "npm run lint:fixs",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "start:dev": "webpack serve --config webpack.config.js --mode=development",
+    "start:prod": "webpack serve --config webpack.config.js --mode=production",
+    "start:test": "webpack serve --config webpack.config.js --mode=development & json-server --watch base/database.json",
+    "lint:check": "eslint --debug my_app_dev/",
+    "lint:fix": "eslint --debug my_app_dev/ --fix"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
