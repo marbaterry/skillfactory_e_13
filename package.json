@@ -28,7 +28,7 @@
   },
   "lint-staged": {
     "*.(js|jsx)": [
-      "npm run lint:fixs",
+      "npm run lint:fix",
       "git add"
     ]
   },
